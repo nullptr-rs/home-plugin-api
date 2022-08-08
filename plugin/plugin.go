@@ -1,14 +1,10 @@
 package plugin
 
-import (
-	"github.com/Yggdrasil80/home-plugin-api/api"
-)
-
 type Plugin struct {
 	Info Info `json:"info"`
 
-	OnEnable  func(api *api.Api) `json:"on_enable"`
-	OnDisable func(api *api.Api) `json:"on_disable"`
+	OnEnable  func(api *home_plugin_api.Api) `json:"on_enable"`
+	OnDisable func(api *home_plugin_api.Api) `json:"on_disable"`
 }
 
 type Info struct {
