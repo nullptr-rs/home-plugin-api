@@ -1,0 +1,19 @@
+name: Github CI - Golang
+
+on: [ push ]
+
+jobs:
+  golangci:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        with:
+          check-latest: true
+          go-version: 1.19
+          cache: true
+      - uses: golangci/golangci-lint-action@v3

@@ -2,7 +2,7 @@ package events
 
 import (
 	"github.com/Yggdrasil80/home-plugin-api/event"
-	"github.com/Yggdrasil80/home-plugin-api/router/context"
+	"github.com/labstack/echo/v4"
 )
 
 func PluginLoadedEvent(pluginName string) *event.Event {
@@ -14,7 +14,7 @@ func PluginLoadedEvent(pluginName string) *event.Event {
 	}
 }
 
-func RouteAddedEvent(method string, path string, handler func(ctx *context.Context) error) *event.Event {
+func RouteAddedEvent(method string, path string, handler func(ctx *echo.Context) error) *event.Event {
 	return &event.Event{
 		Name: "route_added",
 		Data: map[string]interface{}{
@@ -25,18 +25,9 @@ func RouteAddedEvent(method string, path string, handler func(ctx *context.Conte
 	}
 }
 
-func RequestReceivedEvent(ctx *context.Context) *event.Event {
+func RequestReceivedEvent(ctx *echo.Context) *event.Event {
 	return &event.Event{
 		Name: "request_received",
-		Data: map[string]interface{}{
-			"ctx": ctx,
-		},
-	}
-}
-
-func RequestHandledEvent(ctx *context.Context) *event.Event {
-	return &event.Event{
-		Name: "request_handled",
 		Data: map[string]interface{}{
 			"ctx": ctx,
 		},
