@@ -7,8 +7,8 @@ import (
 )
 
 type Api struct {
-	EventBus *event.Bus
-	Storage  *storage.Storage
+	EventBus event.Bus
+	Storage  storage.Storage
 
 	Echo *echo.Echo
 }
