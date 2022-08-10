@@ -12,10 +12,10 @@ type Collection interface {
 	Distinct(field string, filter Filter) ([]interface{}, error)
 
 	Find(filter Filter) (Cursor, error)
-	FindOne(filter Filter) (Cursor, []byte, error)
-	FindOneAndDelete(filter Filter) (Cursor, []byte, error)
-	FindOneAndReplace(filter Filter, replacement interface{}) (Cursor, []byte, error)
-	FindOneAndUpdate(filter Filter, update interface{}) (Cursor, []byte, error)
+	FindOne(filter Filter) ([]byte, error)
+	FindOneAndDelete(filter Filter) ([]byte, error)
+	FindOneAndReplace(filter Filter, replacement interface{}) ([]byte, error)
+	FindOneAndUpdate(filter Filter, update interface{}) ([]byte, error)
 
 	InsertOne(document interface{}) (interface{}, error)
 	InsertMany(documents []interface{}) ([]interface{}, error)
