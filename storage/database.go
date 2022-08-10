@@ -1,7 +1,7 @@
 package storage
 
 type Database interface {
-	Aggregate(pipeline Pipeline) (*Cursor, error)
+	AggregateDatabase(pipeline Pipeline) (*Cursor, error)
 
 	CreateCollection(collection string) error
 	CreateView(view string, viewOn string, pipeline Pipeline) error
@@ -9,6 +9,6 @@ type Database interface {
 	ListCollectionNames(filter Filter) ([]string, error)
 	ListCollections(filter Filter) (*Cursor, error)
 
-	Name() string
-	Drop() error
+	DatabaseName() string
+	DropDatabase() error
 }

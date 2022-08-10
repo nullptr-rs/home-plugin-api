@@ -1,7 +1,7 @@
 package storage
 
 type Collection interface {
-	Aggregate(pipeline Pipeline) (*Cursor, error)
+	AggregateCollection(pipeline Pipeline) (*Cursor, error)
 
 	CountDocuments(filter Filter) (int64, error)
 	EstimatedDocumentCount() (int64, error)
@@ -26,6 +26,6 @@ type Collection interface {
 	UpdateMany(filter Filter, update interface{}) (int64, int64, int64, error)
 	UpdateOne(filter Filter, update interface{}) (int64, int64, int64, error)
 
-	Drop() error
-	Name() string
+	CollectionName() string
+	DropCollection() error
 }

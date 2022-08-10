@@ -1,10 +1,10 @@
 package storage
 
 type Storage interface {
-	SetDatabase(database string) error
-	SetCollection(collection string) error
+	SetDatabase(database string)
+	SetCollection(collection string)
 
-	ListDatabases() ([]string, error)
+	ListDatabases(filter Filter) ([]string, error)
 	NumberSessionsInProgress() int
 	Ping() error
 
